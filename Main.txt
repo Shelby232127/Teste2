@@ -17,9 +17,11 @@ local redzlib = {
                 ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 0, 0))
             }),
             ["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
-            ["Color Stroke"] = Color3.fromRGB(0, 0, 0),
-			["Color Theme"] = Color3.fromRGB(199, 21, 133),
-			["Color Text"] = Color3.fromRGB(199, 21, 133),
+			["Color Stroke"] = Color3.fromRGB(0, 0, 0),
+			["Color Theme"] = Color3.fromRGB(148, 0, 211),
+			["Color Text"] = Color3.fromRGB(148, 0, 211),
+			["Color Dark Text"] = Color3.fromRGB(148, 0, 211)
+        },
         Dark = {
 			["Color Hub 1"] = ColorSequence.new({
 				ColorSequenceKeypoint.new(0.00, Color3.fromRGB(0, 0, 0)),
@@ -28,9 +30,9 @@ local redzlib = {
 			}),
 			["Color Hub 2"] = Color3.fromRGB(0, 0, 0),
 			["Color Stroke"] = Color3.fromRGB(0, 0, 0),
-			["Color Theme"] = Color3.fromRGB(199, 21, 133),
-			["Color Text"] = Color3.fromRGB(199, 21, 133),
-			["Color Dark Text"] = Color3.fromRGB(199, 21, 133)
+			["Color Theme"] = Color3.fromRGB(148, 0, 211),
+			["Color Text"] = Color3.fromRGB(148, 0, 211),
+			["Color Dark Text"] = Color3.fromRGB(148, 0, 211)
 		},
     }, 
 
@@ -44,7 +46,7 @@ local redzlib = {
     },
     Settings = {},
     Connection = {},
-    Instances = {}, 
+    Instances = {},
     Elements = {},
     Options = {},
     Flags = {},
@@ -1508,7 +1510,7 @@ function redzlib:MakeWindow(Configs)
 
     local ParticleContainer = Create("Frame", Containers, {
         Size = UDim2.new(1, 0, 1, 0),
-        BackgroundTransparency = 0,
+        BackgroundTransparency = 1,
         Name = "ThemeParticles",
         ZIndex = -5,
         ClipsDescendants = true
@@ -1517,8 +1519,8 @@ function redzlib:MakeWindow(Configs)
     local ParticleConfig = {
         MaxParticles = 30,
         SpawnRate = 0.1,
-        ParticleSize = {Min = 1, Max = 1},
-        ParticleSpeed = {Min = 1, Max = 1},
+        ParticleSize = {Min = 6, Max = 10},
+        ParticleSpeed = {Min = 15, Max = 25},
         ParticleLifetime = 6
     }
 
@@ -1696,12 +1698,12 @@ function redzlib:MakeWindow(Configs)
     function Window:CloseBtn()
         local Dialog = Window:Dialog({
             Title = "Lyra Hub",  
-            Text = "Tem certeza que vai fechar?", 
+            Text = "Tem certeza que ja vai sair?", 
             Options = {
-                {"Sim", function()  
+                {"Yes", function()  
                     ScreenGui:Destroy()
                 end},
-                {"Não"} 
+                {"No"} 
             }
         })
     end
