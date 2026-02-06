@@ -1517,10 +1517,10 @@ function redzlib:MakeWindow(Configs)
     })
     
     local ParticleConfig = {
-        MaxParticles = 1,
+        MaxParticles = 30,
         SpawnRate = 0.1,
-        ParticleSize = {Min = 1, Max = 1},
-        ParticleSpeed = {Min = 1, Max = 1},
+        ParticleSize = {Min = 6, Max = 10},
+        ParticleSpeed = {Min = 15, Max = 25},
         ParticleLifetime = 6
     }
 
@@ -1687,11 +1687,10 @@ function redzlib:MakeWindow(Configs)
         Image = "rbxassetid://10734896206",
         Name = "Minimize"
     })
-
+    
     SetChildren(ButtonsFolder, {
         CloseButton,
-        MinimizeButton,
-        CustomButton
+        MinimizeButton
     })
     
     local Minimized, SaveSize, WaitClick
@@ -1699,7 +1698,7 @@ function redzlib:MakeWindow(Configs)
     function Window:CloseBtn()
         local Dialog = Window:Dialog({
             Title = "Lyra Hub",  
-            Text = "Tem certeza que ja vai sair?", 
+            Text = "Tem certeza que deseja fechar o menu?", 
             Options = {
                 {"Yes", function()  
                     ScreenGui:Destroy()
@@ -2220,7 +2219,7 @@ function redzlib:MakeWindow(Configs)
             local DropFrame = Create("Frame", NoClickFrame, {
                 Size = UDim2.new(SelectedFrame.Size.X, 0, 0),
                 BackgroundTransparency = 0.1,
-                BackgroundColor3 = Color3.fromRGB(186, 85, 211),
+                BackgroundColor3 = Color3.fromRGB(148, 0, 211),
                 AnchorPoint = Vector2.new(0, 1),
                 Name = "DropdownFrame",
                 ClipsDescendants = true,
@@ -2253,7 +2252,7 @@ function redzlib:MakeWindow(Configs)
                 WaitClick = true
                 CreateTween({Arrow, "Rotation", 0, 0.2})
                 CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
-                CreateTween({Arrow, "ImageColor3", Color3.fromRGB(186, 85, 211), 0.2})
+                CreateTween({Arrow, "ImageColor3", Color3.fromRGB(148, 0, 211), 0.2})
                 Arrow.Image = "rbxassetid://10709791523"
                 NoClickFrame.Visible = false
                 WaitClick = false
@@ -2282,7 +2281,7 @@ function redzlib:MakeWindow(Configs)
                 WaitClick = true
                 if NoClickFrame.Visible then
                     Arrow.Image = "rbxassetid://10709791523"
-                    CreateTween({Arrow, "ImageColor3", Color3.fromRGB(186, 85, 211), 0.2})
+                    CreateTween({Arrow, "ImageColor3", Color3.fromRGB(148, 0, 211), 0.2})
                     CreateTween({DropFrame, "Size", UDim2.new(0, 152, 0, 0), 0.2, true})
                     NoClickFrame.Visible = false
                 else
@@ -2723,7 +2722,7 @@ function redzlib:MakeWindow(Configs)
             TextBoxInput.FocusLost:Connect(Input)Input()
             
             TextBoxInput.FocusLost:Connect(function()
-                CreateTween({Pencil, "ImageColor3", Color3.fromRGB(186, 85, 211), 0.2})
+                CreateTween({Pencil, "ImageColor3", Color3.fromRGB(148, 0, 211), 0.2})
             end)
             TextBoxInput.Focused:Connect(function()
                 CreateTween({Pencil, "ImageColor3", Color3.fromRGB(0, 0, 0), 0.2})
@@ -2750,7 +2749,7 @@ function redzlib:MakeWindow(Configs)
             local InviteLabel = Create("TextLabel", InviteHolder, {
                 Size = UDim2.new(1, 0, 0, 15),
                 Position = UDim2.new(0, 5),
-                TextColor3 = Color3.fromRGB(186, 85, 211),
+                TextColor3 = Color3.fromRGB(148, 0, 211),
                 Font = Enum.Font.GothamBold,
                 TextXAlignment = "Left",
                 BackgroundTransparency = 1,
@@ -2776,7 +2775,7 @@ function redzlib:MakeWindow(Configs)
                 Size = UDim2.new(1, -52, 0, 15),
                 Position = UDim2.new(0, 44, 0, 7),
                 Font = Enum.Font.GothamBold,
-                TextColor3 = Color3.fromRGB(186, 85, 211),
+                TextColor3 = Color3.fromRGB(148, 0, 211),
                 TextXAlignment = "Left",
                 BackgroundTransparency = 1,
                 TextSize = 10,
@@ -2789,7 +2788,7 @@ function redzlib:MakeWindow(Configs)
                 TextWrapped = true,
                 AutomaticSize = "Y",
                 Font = Enum.Font.Gotham,
-                TextColor3 = Color3.fromRGB(186, 85, 211),
+                TextColor3 = Color3.fromRGB(148, 0, 211),
                 TextXAlignment = "Left",
                 BackgroundTransparency = 1,
                 TextSize = 8,
@@ -2803,7 +2802,7 @@ function redzlib:MakeWindow(Configs)
                 Text = "Join",
                 Font = Enum.Font.GothamBold,
                 TextSize = 12,
-                TextColor3 = Color3.fromRGB(186, 85, 211),
+                TextColor3 = Color3.fromRGB(148, 0, 211),
                 BackgroundColor3 = Color3.fromRGB(0, 0, 0)
             }) Make("Corner", JoinButton, UDim.new(0, 6))
 
@@ -2815,13 +2814,13 @@ function redzlib:MakeWindow(Configs)
                 ClickDelay = true
                 SetProps(JoinButton, {
                     Text = "Copied to clipboard",
-                    BackgroundColor3 = Color3.fromRGB(186, 85, 211),
+                    BackgroundColor3 = Color3.fromRGB(148, 0, 211),
                     TextColor3 = Color3.fromRGB(0, 0, 0)
                 }) task.wait(5)
                 SetProps(JoinButton, {
                     Text = "Join",
                     BackgroundColor3 = Color3.fromRGB(0, 0, 0),
-                    TextColor3 = Color3.fromRGB(186, 85, 211)
+                    TextColor3 = Color3.fromRGB(148, 0, 211)
                 }) ClickDelay = false
             end)
 
